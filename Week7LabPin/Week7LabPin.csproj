@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201508141721035_Test.Designer.cs">
       <DependentUpon>201508141721035_Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508172048323_next.cs" />
+    <Compile Include="Migrations\201508172048323_next.Designer.cs">
+      <DependentUpon>201508172048323_next.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -195,8 +199,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -240,10 +246,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Interests\Create.cshtml" />
-    <Content Include="Views\Interests\Delete.cshtml" />
-    <Content Include="Views\Interests\Details.cshtml" />
-    <Content Include="Views\Interests\Edit.cshtml" />
     <Content Include="Views\Interests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508141721035_Test.resx">
       <DependentUpon>201508141721035_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508172048323_next.resx">
+      <DependentUpon>201508172048323_next.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

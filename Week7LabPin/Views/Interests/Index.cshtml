@@ -4,43 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="container" ng-controller="interestCtrl as ctrl">
+    <div ng-repeat="interest in interests" class="col-md-4 col-sm-6 text-center" ng-class="{'clearfix' : $index % 3 == 0}">
+         <img ng-src="{{interest.Link}}" /><br/>
+            <a ng-href="{{interest.URL}}">View Here</a>
+            <p>{{interest.Comment}}</p>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.URL)
-        </th>
-        <th></th>
-    </tr>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-          @*  @Html.DisplayFor(modelItem => item.Image)*@
-            <img src="@Url.Action("GetImage", new { Id = item.Id })"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.URL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+@section scripts {
+    <script>
+       ( function () {
+           var app = angular.module('interests', []);
 
-</table>
+           app.controller('interestCtrl', function ($scope, $http) {
+               this.interests = [];
+               $http.get('@Url.Action("List", "Interests")').success(function (data) {
+                   $scope.interests = data;
+               });
+           });
+           app.controller('submitCtrl', function ($scope, $http) {
+               this.addPin = function (interest) {
+                   $http.post('/Interest/New/', interest);
+                   $scope.interest = {};
+               };
+           });
+       })();
+        
+    </script>
+    }

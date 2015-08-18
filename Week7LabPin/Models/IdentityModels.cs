@@ -37,7 +37,15 @@ namespace Week7LabPin.Models
         public PinterestUser Poster { get; set; }
         public byte[] Image { get; set; }
         public string Comment { get; set; }
+        public string Pin { get; set; }
         public string URL { get; set; }
+        public string Link
+        {
+            get
+            {
+                return "/Interests/GetImage/" + Id.ToString();
+            }
+        }
 
 
         public static byte[] ScaleImage(byte[] source, int maxWidth, int maxHeight)
